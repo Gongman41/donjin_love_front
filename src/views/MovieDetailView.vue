@@ -97,6 +97,7 @@ const genres = ref('')
 const actors = ref([])
 const crews = ref([])
 const liked = ref(false)
+const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY
 
 onMounted(() => {
   movieId.value = route.params.movie_id;
@@ -164,7 +165,7 @@ const submitQuery = async function () {
         part: 'snippet',
         q: `${movie.value.title} official trailer`,
         type: 'video',
-        key: 'AIzaSyDskhfMipluROAa1aw94rdNHj4WrrIKHY4',
+        key: `${API_KEY}`,
       }
       // key 갱신 문제
     });
